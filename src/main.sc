@@ -1,83 +1,40 @@
 theme: /
 
     state: newNode_13
-        a:  Здравствуйте! \n
-            Этот сценарий - пример каталога товаров для приема заказов через чатбота. Этот пример покажет, как использовать кнопки, картинки и переходы.
-        # Transition /newNode_14
-        go!: /newNode_0
-
-    state: newNode_0
-        a: Выбрерите категорию товара, нажав на соответствующую кнопку внизу чата.
+        a:  Добро пожаловать в Северные Деликатесы! \n
+            Выберите категорию товара.
         buttons:
-            "Ноутбуки" -> /newNode_3
-            "Телефоны" -> /newNode_7
+            "Рыба слабосолёная филе" -> /newNode_fish
 
-    state: newNode_3
-        a: Выберите ноутбук
-        # Transition /newNode_4
-        go!: /newNode_1
-
-    state: newNode_1
-        a: Apple MacBook Pro 16"
-        image: https://248305.selcdn.ru/zfl_prod/248684181/248684188/oPykFjj2T2m2m4o2.png
+    state: newNode_fish
+        a:  Выберите товар:
         buttons:
-            "Выбрать Apple MacBook Pro 16" -> /newNode_5
-            "Другой ноутбук" -> /newNode_2
-            "Вернуться в меню" -> /newNode_0
+            "Чир филе" -> /newNode_chir
+            "Нельма филе" -> /newNode_nelma
+            "Вернуться в меню" -> /newNode_13
 
-    state: newNode_2
-        a: Apple MacBook Air 13
-        image: https://248305.selcdn.ru/zfl_prod/248684181/248684188/GVdu9VYOJcJsTJ1b.png
+    state: newNode_chir
+        a:  Чир филе слабосолёный \n
+            Деликатесное слабосолёное филе северного Чира.
+        image: https://raw.githubusercontent.com/kamushken/imgtest/master/chir.jpg
         buttons:
-            "Выбрать Apple MacBook Air 13" -> /newNode_6
-            "Другой ноутбук" -> /newNode_1
-            "Вернуться в меню" -> /newNode_0
+            "Заказать" -> /newNode_order_chir
+            "Назад" -> /newNode_fish
+            "В меню" -> /newNode_13
 
-    state: newNode_5
-        a:  Вы выбрали Apple MacBook Pro 16".\n
-            На этом пример сценария заканчивается. Изменяйте блоки и создавайте новые, чтобы сделать ваш сценарий максимально полезным для вашего бизнеса.\n
-            Прочтите инструкции о том, как собирать лиды через чатбота: https://help.aimylogic.com/#/docs/ru/how_to/contact_data
+    state: newNode_nelma
+        a:  Нельма филе слабосолёная \n
+            Премиальное филе Нельмы слабой соли.
+        image: https://raw.githubusercontent.com/kamushken/imgtest/master/nelma.jpg
         buttons:
-            "Вернуться в меню" -> /newNode_0
+            "Заказать" -> /newNode_order_nelma
+            "Назад" -> /newNode_fish
+            "В меню" -> /newNode_13
 
-    state: newNode_6
-        a:  Вы выбрали Apple MacBook Air 13.\n
-            На этом пример сценария заканчивается. Изменяйте блоки и создавайте новые, чтобы сделать ваш сценарий максимально полезным для вашего бизнеса.\n
-            Прочтите инструкции о том, как собирать лиды через чатбота: https://help.aimylogic.com/#/docs/ru/how_to/contact_data
-        buttons:
-            "Вернуться в меню" -> /newNode_0
+    state: newNode_order_chir
+        a:  Ваш заказ: Чир филе. Мы скоро свяжемся с вами!
+        go!: /newNode_13
 
-    state: newNode_7
-        a: Выберите телефон
-        # Transition /newNode_8
-        go!: /newNode_9
-
-    state: newNode_9
-        a: Apple iPhone 12 Pro
-        image: https://248305.selcdn.ru/zfl_prod/248684181/248684188/lnqfnjBYbJWUoo1D.png
-        buttons:
-            "Выбрать Apple iPhone 12 PRO" -> /newNode_12
-            "Другой телефон" -> /newNode_10
-            "Вернуться в меню" -> /newNode_0
-
-    state: newNode_10
-        a: Apple iPhone 11
-        image: https://248305.selcdn.ru/zfl_prod/248684181/248684188/OcELM7pjsoBeQWh6.png
-        buttons:
-            "Выбрать Apple iPhone 11" -> /newNode_11
-            "Другой телефон" -> /newNode_9
-            "Вернуться в меню" -> /newNode_0
-
-    state: newNode_11
-        a:  Вы выбрали Apple iPhone 11.\n
-            На этом пример сценария заканчивается. Изменяйте блоки и создавайте новые, чтобы сделать ваш сценарий максимально полезным для вашего бизнеса.\n
-            Прочтите инструкции о том, как собирать лиды через чатбота: https://help.aimylogic.com/#/docs/ru/how_to/contact_data
-        buttons:
-            "Вернуться в меню" -> /newNode_0
-
-    state: newNode_12
-        a:  Вы выбрали Apple iPhone 12 Pro\n
-            На этом пример сценария заканчивается. Изменяйте блоки и создавайте новые, чтобы сделать ваш сценарий максимально полезным для вашего бизнеса.\n
-            Прочтите инструкции о том, как собирать лиды через чатбота: https://help.aimylogic.com/#/docs/ru/how_to/contact_data
-        buttons:
-            "Вернуться в меню" -> /newNode_0
+    state: newNode_order_nelma
+        a:  Ваш заказ: Нельма филе. Мы скоро свяжемся с вами!
+        go!: /newNode_13
