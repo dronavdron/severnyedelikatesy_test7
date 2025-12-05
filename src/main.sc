@@ -16,7 +16,7 @@ theme: /
     state: newNode_chir
         a:  Чир филе слабосолёный \n
             Деликатесное слабосолёное филе северного Чира.
-        image: https://raw.githubusercontent.com/kamushken/imgtest/master/chir.jpg
+        image: https://telegra.ph/file/ea6cd1bdc476d4daa7a8c.png
         buttons:
             "Заказать" -> /newNode_order_chir
             "Назад" -> /newNode_fish
@@ -25,7 +25,7 @@ theme: /
     state: newNode_nelma
         a:  Нельма филе слабосолёная \n
             Премиальное филе Нельмы слабой соли.
-        image: https://raw.githubusercontent.com/kamushken/imgtest/master/nelma.jpg
+        image: https://telegra.ph/file/6e2df10efc83e0fbca7ce.png
         buttons:
             "Заказать" -> /newNode_order_nelma
             "Назад" -> /newNode_fish
