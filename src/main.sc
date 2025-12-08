@@ -1,5 +1,3 @@
-theme: /
-
 require: slotfilling/slotFilling.sc
   module = sys.zb-common
 
@@ -29,18 +27,16 @@ state: AddItem
 state: Order
     intent!: /Заказ/i
     a: Введите ваш телефон для оформления заказа.
-    context: waiting_phone
+    a: (Просто напишите цифрами.)
 
 state: SavePhone
-    context!: waiting_phone
     q!: $any
-    a: Спасибо! Ваш заказ принят.
-    a: Мы свяжемся с вами в ближайшее время.
-
-state: Match
-    event!: match
-    a: {{$context.intent.answer}}
+    a: Спасибо! Ваш номер сохранён. Мы свяжемся с вами.
 
 state: NoMatch
     event!: noMatch
     a: Не поняла вас. Напишите "каталог", чтобы увидеть товары.
+
+state: Match
+    event!: match
+    a: {{$context.intent.answer}}
