@@ -29,8 +29,10 @@ state: AddItem
 state: Order
     intent!: /Заказ/i
     a: Введите ваш телефон для оформления заказа.
+    context: waiting_phone
 
 state: SavePhone
+    context!: waiting_phone
     q!: $any
     a: Спасибо! Ваш заказ принят.
     a: Мы свяжемся с вами в ближайшее время.
