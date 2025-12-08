@@ -1,44 +1,55 @@
-theme: /
+start:
+  transitions:
+    - state: hello
 
-require: slotfilling/slotFilling.sc
-  module = sys.zb-common
+states:
 
-state: Start
-    q!: $regex</start>
-    a: Бот запущен. Напишите "каталог", чтобы посмотреть товар.
+  hello:
+    action:
+      say: "Бот запущен. Напишите 'каталог', чтобы посмотреть товар."
+    transitions:
+      - intent: hello
+        state: greeting
+      - intent: catalog
+        state: catalog
 
-state: Hello
-    intent!: /привет/i
-    a: Привет! Напишите "каталог", чтобы открыть каталог.
+  greeting:
+    action:
+      say: "Привет! Напишите 'каталог', чтобы открыть каталог."
+    transitions:
+      - state: hello
 
-state: Bye
-    intent!: /пока/i
-    a: Пока! Рада была помочь.
+  bye:
+    action:
+      say: "Пока! Рада была помочь."
 
-state: Catalog
-    intent!: /каталог|товары|продук/i
-    a: Каталог северных деликатесов:
-    a: 1) Северная строганина — 990 ₽
-    a: Чтобы добавить товар в заказ, напишите: Добавить строганину
+  catalog:
+    action:
+      say: "Каталог северных деликатесов:\n1) Северная строганина — 990 ₽\nНапишите 'Добавить строганину'."
+    transitions:
+      - intent: add_str
+        state: addItem
 
-state: AddItem
-    intent!: /Добавить строганину/i
-    a: Северная строганина добавлена в ваш заказ.
-    a: Чтобы оформить заказ, напишите: Заказ
+  addItem:
+    action:
+      say: "Строганина добавлена. Напишите 'заказ' чтобы оформить заказ."
+    transitions:
+      - intent: order
+        state: order
 
-state: Order
-    intent!: /Заказ/i
-    a: Введите ваш телефон для оформления заказа.
-    a: (Просто напишите цифрами.)
+  order:
+    action:
+      say: "Введите ваш телефон."
+    transitions:
+      - intent: phone
+        state: savePhone
 
-state: SavePhone
-    q!: $any
-    a: Спасибо! Ваш номер сохранён. Мы свяжемся с вами.
+  savePhone:
+    action:
+      say: "Спасибо! Ваш заказ принят."
+    transitions:
+      - state: hello
 
-state: NoMatch
-    event!: noMatch
-    a: Не поняла вас. Напишите "каталог", чтобы увидеть товары.
-
-state: Match
-    event!: match
-    a: {{$context.intent.answer}}
+noMatch:
+  action:
+    say: "Не поняла вас. Напишите 'каталог', чтобы увидеть товары."
