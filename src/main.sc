@@ -24,65 +24,38 @@ theme: /
 
     state: Catalog
         q!: $regex(/каталог|товары|деликатесы/i)
-        a:
-            Вот тестовый каталог северных деликатесов:
-            {{carousel([
-                {
-                    "title": "Северная семга охлаждённая",
-                    "description": "Настоящий северный деликатес. Цена: 1990 ₽/кг",
-                    "imageUrl": "https://i.ibb.co/g9CHdP0/salmon-demo.jpg",
-                    "buttons": [
-                        {
-                            "text": "Заказать",
-                            "transition": "OrderStart",
-                            "data": {
-                                "product": "Северная семга охлаждённая",
-                                "price": "1990 ₽/кг"
-                            }
-                        }
-                    ]
-                }
-            ])}}
+        a: {{carousel([{"title":"Северная семга охлаждённая","description":"Настоящий северный деликатес. Цена: 1990 ₽/кг","imageUrl":"https://i.ibb.co/g9CHdP0/salmon-demo.jpg","buttons":[{"text":"Заказать","transition":"OrderStart","data":{"product":"Северная семга охлаждённая","price":"1990 ₽/кг"}}]}])}}
 
     state: OrderStart
-        a:
-            Отлично! Вы выбрали: {{$data.product}} ({{$data.price}}).
-            Напишите, пожалуйста, как вас зовут.
-        do:
-            $session.selectedProduct = $data.product;
-            $session.selectedPrice = $data.price;
+        a: Отлично! Вы выбрали: {{$data.product}} ({{$data.price}}). Как вас зовут?
+        set:
+            selectedProduct: "{{$data.product}}"
+            selectedPrice: "{{$data.price}}"
         go!: OrderName
 
     state: OrderName
         q!: $regex(/.+/)
-        a: Спасибо! Теперь укажите ваш номер телефона.
-        do:
-            $session.clientName = $request.query;
+        a: Спасибо! Теперь введите номер телефона.
+        set:
+            clientName: "{{$request.query}}"
         go!: OrderPhone
 
     state: OrderPhone
         q: $regex(/\+?\d{10,15}/)
         a: Спасибо! Ваш заказ оформлен.
-        do:
-            $session.clientPhone = $request.query;
+        set:
+            clientPhone: "{{$request.query}}"
         go!: SendOrder
 
-    state: OrderPhone
+    state: OrderPhoneError
         q!: $regex(/.*/)
-        a: Пожалуйста, введите номер телефона в формате +79991234567
+        a: Пожалуйста, введите телефон в формате +79991234567
         go!: OrderPhone
 
     state: SendOrder
-        a:
-            Получен заказ:
-
-            Товар: {{$session.selectedProduct}}
-            Цена: {{$session.selectedPrice}}
-            Имя клиента: {{$session.clientName}}
-            Телефон: {{$session.clientPhone}}
-
-            Спасибо за заказ!
+        a: Новый заказ: {{$session.selectedProduct}} по {{$session.selectedPrice}}. Клиент: {{$session.clientName}}, Телефон: {{$session.clientPhone}}
         go!: Start
+
 
 
 
