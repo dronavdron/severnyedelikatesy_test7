@@ -1,5 +1,7 @@
-theme: /
-
-state: Start
-    q!: $regex</start>
-    a: Начнём.
+theme "/" {
+    state Start {
+        onEnter {
+            reply "Начнём."
+        }
+    }
+}
