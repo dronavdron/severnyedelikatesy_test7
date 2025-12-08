@@ -1,31 +1,52 @@
 {
   "project" : {
-    "id" : "delikatesy2-1000252244-fpG",
-    "name" : "delikatesy2-1000252244-fpG",
+    "id" : "prodayoa_delikatesov-1000252244-CvA",
+    "name" : "prodayoa_delikatesov-1000252244-CvA",
     "folder" : "/platform"
   },
   "settings" : {
     "language" : "ru",
     "spellingCorrection" : false,
     "classificationAlgorithm" : "sts",
-    "timezone" : "UTC",
+    "timezone" : "Europe/Moscow",
     "extendedSettings" : {
+      "classificationAlgorithmVersion" : 1.0,
       "tokenizerEngine" : "mystem",
-      "allowedPatterns" : [ "agree", "disagree", "bad", "bot", "bye", "cannot", "clever", "compliment", "dontKnow", "gender", "good", "hello", "looser", "maybe", "me", "my", "need", "normal", "notNow", "now", "pls", "serviceHelperHuman", "stupid", "super", "sure", "thanks", "turnOff", "turnOn", "what", "why", "email", "smth", "obsceneWord", "continue", "shutUp", "stopGame", "stopGameStrong", "stopGameWeak" ],
-      "useShared" : true,
-      "zflPatternsEnabled" : true
+      "useShared" : false
     },
     "shared" : false,
     "validation" : {
-      "phraseValidationEnabled" : false,
-      "answerValidationEnabled" : false,
+      "phraseValidationEnabled" : true,
+      "answerValidationEnabled" : true,
       "phraseValidationThreshold" : 0.5,
       "answerValidationThreshold" : 0.8
     }
   },
-  "intents" : [ ],
+  "intents" : [ {
+    "path" : "/пока",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "пока"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "priority" : 0
+  }, {
+    "path" : "/привет",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "привет"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "priority" : 0
+  } ],
   "entities" : [ ],
-  "enabledSystemEntities" : [ ],
+  "enabledSystemEntities" : [ "duckling.number", "duckling.time", "duckling.duration", "duckling.phone-number", "duckling.email", "duckling.url" ],
   "spellerDictionary" : [ ],
   "systemEntities" : [ {
     "name" : "mystem.geo",
@@ -74,48 +95,48 @@
     "enabled" : false
   }, {
     "name" : "duckling.number",
-    "version" : "v1",
-    "enabled" : false
+    "version" : "v2",
+    "enabled" : true
   }, {
     "name" : "duckling.ordinal",
-    "version" : "v1",
+    "version" : "v2",
     "enabled" : false
   }, {
     "name" : "duckling.amount-of-money",
-    "version" : "v1",
+    "version" : "v2",
     "enabled" : false
   }, {
     "name" : "duckling.distance",
-    "version" : "v1",
+    "version" : "v2",
     "enabled" : false
   }, {
     "name" : "duckling.time",
-    "version" : "v1",
-    "enabled" : false
+    "version" : "v2",
+    "enabled" : true
   }, {
     "name" : "duckling.date",
-    "version" : "v1",
+    "version" : "v2",
     "enabled" : false
   }, {
     "name" : "duckling.time-of-day",
-    "version" : "v1",
+    "version" : "v2",
     "enabled" : false
   }, {
     "name" : "duckling.duration",
-    "version" : "v1",
-    "enabled" : false
+    "version" : "v2",
+    "enabled" : true
   }, {
     "name" : "duckling.phone-number",
-    "version" : "v1",
-    "enabled" : false
+    "version" : "v2",
+    "enabled" : true
   }, {
     "name" : "duckling.email",
-    "version" : "v1",
-    "enabled" : false
+    "version" : "v2",
+    "enabled" : true
   }, {
     "name" : "duckling.url",
-    "version" : "v1",
-    "enabled" : false
+    "version" : "v2",
+    "enabled" : true
   }, {
     "name" : "duckling.interval",
     "version" : "v2",
