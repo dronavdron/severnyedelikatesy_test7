@@ -1,4 +1,4 @@
-name: delikatesy2
+name: delikatesy_simple
 entryPoint: entryPoint.sc
 botEngine: v2
 language: ru
