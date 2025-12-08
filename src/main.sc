@@ -24,10 +24,10 @@ theme: /
 
     state: Catalog
         q!: $regex(/каталог|товары|деликатесы/i)
-        a: {{carousel([{"title":"Северная семга","description":"Цена: 1990 ₽/кг","imageUrl":"https://i.ibb.co/g9CHdP0/salmon-demo.jpg","buttons":[{"text":"Заказать","transition":"OrderStart","data":{"product":"Северная семга","price":"1990 ₽/кг"}}]}])}}
+        a: {{carousel([{"title":"Северная семга","description":"Цена 1990 ₽/кг","imageUrl":"https://i.ibb.co/g9CHdP0/salmon-demo.jpg","buttons":[{"text":"Заказать","transition":"OrderStart","data":{"product":"Северная семга","price":"1990 ₽/кг"}}]}])}}
 
     state: OrderStart
-        a: Вы выбрали {{$data.product}} ({{$data.price}}). Как вас зовут?
+        a: Вы выбрали {{$data.product}} за {{$data.price}}. Как вас зовут?
         go!: OrderName(product="{{$data.product}}",price="{{$data.price}}")
 
     state: OrderName
@@ -46,9 +46,8 @@ theme: /
         go!: OrderPhone(product="{{$data.product}}",price="{{$data.price}}",name="{{$data.name}}")
 
     state: SendOrder
-        a: Новый заказ: {{$data.product}} за {{$data.price}}. Клиент {{$data.name}}, телефон {{$data.phone}}
+        a: Заказ: {{$data.product}} за {{$data.price}}. Клиент {{$data.name}}, телефон {{$data.phone}}
         go!: Start
-
 
 
 
