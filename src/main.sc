@@ -1,41 +1,40 @@
 theme: /
 
-state: Start
-    q!: $regex</start>
-    a: Бот запущен. Напишите "каталог", чтобы посмотреть товар.
+    state: newNode_13
+        a:  Добро пожаловать в Северные Деликатесы! \n
+            Выберите категорию товара.
+        buttons:
+            "Рыба слабосолёная филе" -> /newNode_fish
 
-state: Hello
-    intent!: /привет/i
-    a: Привет! Напишите "каталог", чтобы открыть каталог.
+    state: newNode_fish
+        a:  Выберите товар:
+        buttons:
+            "Чир филе" -> /newNode_chir
+            "Нельма филе" -> /newNode_nelma
+            "Вернуться в меню" -> /newNode_13
 
-state: Bye
-    intent!: /пока/i
-    a: Пока! Рада была помочь.
+    state: newNode_chir
+        a:  Чир филе слабосолёный \n
+            Деликатесное слабосолёное филе северного Чира.
+        image: https://raw.githubusercontent.com/kamushken/imgtest/master/chir.jpg
+        buttons:
+            "Заказать" -> /newNode_order_chir
+            "Назад" -> /newNode_fish
+            "В меню" -> /newNode_13
 
-state: Catalog
-    intent!: /каталог|товары|продук/i
-    a: Каталог северных деликатесов:
-    a: 1) Северная строганина — 990 ₽
-    a: Чтобы добавить товар в заказ, напишите: Добавить строганину
+    state: newNode_nelma
+        a:  Нельма филе слабосолёная \n
+            Премиальное филе Нельмы слабой соли.
+        image: https://raw.githubusercontent.com/kamushken/imgtest/master/nelma.jpg
+        buttons:
+            "Заказать" -> /newNode_order_nelma
+            "Назад" -> /newNode_fish
+            "В меню" -> /newNode_13
 
-state: AddItem
-    intent!: /Добавить строганину/i
-    a: Северная строганина добавлена в ваш заказ.
-    a: Чтобы оформить заказ, напишите: Заказ
+    state: newNode_order_chir
+        a:  Ваш заказ: Чир филе. Мы скоро свяжемся с вами!
+        go!: /newNode_13
 
-state: Order
-    intent!: /Заказ/i
-    a: Введите ваш телефон для оформления заказа.
-    a: (Просто напишите цифрами.)
-
-state: SavePhone
-    q!: $any
-    a: Спасибо! Ваш номер сохранён. Мы свяжемся с вами.
-
-state: NoMatch
-    event!: noMatch
-    a: Не поняла вас. Напишите "каталог", чтобы увидеть товары.
-
-state: Match
-    event!: match
-    a: {{$context.intent.answer}}
+    state: newNode_order_nelma
+        a:  Ваш заказ: Нельма филе. Мы скоро свяжемся с вами!
+        go!: /newNode_13
