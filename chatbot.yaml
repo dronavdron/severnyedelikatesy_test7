@@ -1,6 +1,0 @@
-name: empty
-
-entryPoint: entryPoint.sc
-
-botEngine: v2
-language: ru
