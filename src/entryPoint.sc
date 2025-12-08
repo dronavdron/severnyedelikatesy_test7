@@ -1,7 +1,7 @@
-theme "/" {
-    state Start {
-        onEnter {
-            reply "Начнём."
-        }
-    }
-}
+<theme path="/">
+    <state id="Start">
+        <onEnter>
+            Начнём.
+        </onEnter>
+    </state>
+</theme>
