@@ -24,9 +24,10 @@ theme: /
 
     state: Catalog
         q!: $regex(/каталог/)
-        a: {{carousel([{"title":"Северная семга","description":"1990 ₽/кг","imageUrl":"https://i.ibb.co/g9CHdP0/salmon-demo.jpg","buttons":[{"text":"Заказать","transition":"OrderStart"}]}])}}
+        a: Северная семга – 1990 ₽/кг. Напишите «Заказать», чтобы оформить заказ.
 
     state: OrderStart
+        intent!: /Заказать
         a: Как вас зовут?
         go!: OrderName
 
@@ -42,7 +43,7 @@ theme: /
 
     state: OrderPhoneError
         q!: $regex(/.*/)
-        a: Введите номер телефона в формате 79991234567
+        a: Введите номер телефона 11 цифр.
         go!: OrderPhone(name="{{$data.name}}")
 
     state: SendOrder
