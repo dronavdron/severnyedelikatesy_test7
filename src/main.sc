@@ -48,42 +48,42 @@ theme: /
         a:
             Отлично! Вы выбрали: {{$data.product}} ({{$data.price}}).
             Напишите, пожалуйста, как вас зовут.
+        do:
+            $session.selectedProduct = $data.product;
+            $session.selectedPrice = $data.price;
         go!: OrderName
 
     state: OrderName
         q!: $regex(/.+/)
-        a:
-            Спасибо, {{$request.query}}! Теперь укажите ваш номер телефона.
-        setVars:
-            clientName: "{{$request.query}}"
+        a: Спасибо! Теперь укажите ваш номер телефона.
+        do:
+            $session.clientName = $request.query;
         go!: OrderPhone
 
     state: OrderPhone
         q: $regex(/\+?\d{10,15}/)
-        a:
-            Спасибо! Ваш заказ оформлен.
-        setVars:
-            clientPhone: "{{$request.query}}"
-            orderedProduct: "{{$data.product}}"
-            orderedPrice: "{{$data.price}}"
+        a: Спасибо! Ваш заказ оформлен.
+        do:
+            $session.clientPhone = $request.query;
         go!: SendOrder
 
-    state: OrderPhoneError
+    state: OrderPhone
         q!: $regex(/.*/)
         a: Пожалуйста, введите номер телефона в формате +79991234567
         go!: OrderPhone
 
     state: SendOrder
         a:
-            Получен новый заказ:
+            Получен заказ:
 
-            Товар: {{$session.orderedProduct}}
-            Цена: {{$session.orderedPrice}}
+            Товар: {{$session.selectedProduct}}
+            Цена: {{$session.selectedPrice}}
             Имя клиента: {{$session.clientName}}
             Телефон: {{$session.clientPhone}}
 
-            Спасибо за заказ! Менеджер свяжется с вами.
+            Спасибо за заказ!
         go!: Start
+
 
 
 
