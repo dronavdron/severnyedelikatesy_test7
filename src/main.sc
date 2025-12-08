@@ -33,12 +33,12 @@ state: OrderStart
 
 state: OrderName
     q!: $regex(/.+/)
-    a: Спасибо! Теперь введите номер телефона.
+    a: Спасибо! Теперь номер телефона.
     go!: OrderPhone(name="{{$request.query}}")
 
 state: OrderPhone
     q: $regex(/\d{11}/)
-    a: Спасибо! Ваш заказ оформлен.
+    a: Спасибо! Заказ оформлен.
     go!: SendOrder(name="{{$data.name}}",phone="{{$request.query}}")
 
 state: OrderPhoneError
