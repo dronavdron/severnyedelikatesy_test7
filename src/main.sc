@@ -1,5 +1,3 @@
-require: slotfilling/slotFilling.sc
-    module: sys.zb-common
 theme: /
 
 state: Start
@@ -24,7 +22,7 @@ state: Match
 
 state: Catalog
     q!: $regex(/каталог/)
-    a: Северная семга – 1990 ₽/кг. Напишите «Заказать», чтобы оформить заказ.
+    a: Северная семга – 1990 ₽/кг. Напишите «Заказать».
 
 state: OrderStart
     intent!: /Заказать
@@ -33,12 +31,12 @@ state: OrderStart
 
 state: OrderName
     q!: $regex(/.+/)
-    a: Спасибо! Теперь введите номер телефона.
+    a: Спасибо! Теперь номер телефона.
     go!: OrderPhone(name="{{$request.query}}")
 
 state: OrderPhone
     q: $regex(/\d{11}/)
-    a: Спасибо! Ваш заказ оформлен.
+    a: Спасибо! Заказ оформлен.
     go!: SendOrder(name="{{$data.name}}",phone="{{$request.query}}")
 
 state: OrderPhoneError
