@@ -1,5 +1,8 @@
 theme: /
 
+    state: Root
+        go!: /newNode_start
+
     state: newNode_start
         a:  Добро пожаловать в Северные Деликатесы!\n
             Выберите категорию товара.
@@ -45,7 +48,7 @@ theme: /
             "Назад" -> /newNode_cat2
 
     state: newNode_cat3
-        a:  Рыба холодного копчения — филе:\n
+        a:  Рыба ХК — филе:\n
             Пример товара: Нельма ХК филе.
         buttons:
             "Нельма филе ХК" -> /newNode_item3
@@ -58,7 +61,7 @@ theme: /
             "Назад" -> /newNode_cat3
 
     state: newNode_cat4
-        a:  Рыба холодного копчения — тушка:\n
+        a:  Рыба ХК — тушка:\n
             Пример товара: Сиг ХК тушка.
         buttons:
             "Сиг тушка ХК" -> /newNode_item4
@@ -150,7 +153,7 @@ theme: /
 
     state: newNode_cat11
         a:  Свежемороженная рыба:\n
-            Пример товара: Нерка свежемороженная.
+            Пример товара: Нерка.
         buttons:
             "Нерка" -> /newNode_item11
             "Назад" -> /newNode_start
