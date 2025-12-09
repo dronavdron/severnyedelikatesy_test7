@@ -11,7 +11,6 @@ theme: /
         buttons:
             "Чир филе" -> /newNode_chir
             "Нельма филе" -> /newNode_nelma
-            "Нельма филе новая" -> /newNode_nelma_new
             "Вернуться в меню" -> /newNode_13
 
     state: newNode_chir
@@ -25,30 +24,76 @@ theme: /
 
     state: newNode_nelma
         a:  Нельма филе слабосолёная \n
-            Премиальное филе Нельмы слабой соли.
+            Премиальное филе Нельмы слабой соли. Цена: 4032 ₽/кг. \n
+            Выберите количество, чтобы добавить в корзину.
         image: https://raw.githubusercontent.com/kamushken/imgtest/master/nelma.jpg
         buttons:
-            "Заказать" -> /newNode_order_nelma
+            "0,5 кг" -> /newNode_nelma_q05
+            "1 кг" -> /newNode_nelma_q1
+            "2 кг" -> /newNode_nelma_q2
             "Назад" -> /newNode_fish
             "В меню" -> /newNode_13
 
-    state: newNode_nelma_new
-        a:  Нельма филе слабосолёная (новая позиция) \n
-            Премиальное нежное филе, слабой соли.
-        image: https://github.com/dronavdron/dronphoto/raw/4037ace1a333a023b81156b75243376b201837ca/5_%D0%9D%D0%B5%D0%BB%D1%8C%D0%BC%D0%B0_%D0%A4%D0%B8%D0%BB%D0%B5_2%20(1).jpg
+    state: newNode_nelma_q05
+        a:  Вы выбрали Нельма филе слабосолёная — 0,5 кг. \n
+            Добавить этот товар в корзину?
         buttons:
-            "Заказать" -> /newNode_order_nelma_new
-            "Назад" -> /newNode_fish
+            "Добавить в корзину" -> /newNode_cart_nelma_q05
+            "Назад" -> /newNode_nelma
+            "В меню" -> /newNode_13
+
+    state: newNode_nelma_q1
+        a:  Вы выбрали Нельма филе слабосолёная — 1 кг. \n
+            Добавить этот товар в корзину?
+        buttons:
+            "Добавить в корзину" -> /newNode_cart_nelma_q1
+            "Назад" -> /newNode_nelma
+            "В меню" -> /newNode_13
+
+    state: newNode_nelma_q2
+        a:  Вы выбрали Нельма филе слабосолёная — 2 кг. \n
+            Добавить этот товар в корзину?
+        buttons:
+            "Добавить в корзину" -> /newNode_cart_nelma_q2
+            "Назад" -> /newNode_nelma
+            "В меню" -> /newNode_13
+
+    state: newNode_cart_nelma_q05
+        a:  В вашей корзине: Нельма филе слабосолёная — 0,5 кг. \n
+            Нажмите «Заказать», чтобы оформить заказ.
+        buttons:
+            "Заказать" -> /newNode_order_nelma_q05
+            "Очистить корзину" -> /newNode_nelma
+            "В меню" -> /newNode_13
+
+    state: newNode_cart_nelma_q1
+        a:  В вашей корзине: Нельма филе слабосолёная — 1 кг. \n
+            Нажмите «Заказать», чтобы оформить заказ.
+        buttons:
+            "Заказать" -> /newNode_order_nelma_q1
+            "Очистить корзину" -> /newNode_nelma
+            "В меню" -> /newNode_13
+
+    state: newNode_cart_nelma_q2
+        a:  В вашей корзине: Нельма филе слабосолёная — 2 кг. \n
+            Нажмите «Заказать», чтобы оформить заказ.
+        buttons:
+            "Заказать" -> /newNode_order_nelma_q2
+            "Очистить корзину" -> /newNode_nelma
             "В меню" -> /newNode_13
 
     state: newNode_order_chir
         a:  Ваш заказ: Чир филе. Мы скоро свяжемся с вами!
         go!: /newNode_13
 
-    state: newNode_order_nelma
-        a:  Ваш заказ: Нельма филе. Мы скоро свяжемся с вами!
+    state: newNode_order_nelma_q05
+        a:  Ваш заказ: Нельма — 0,5 кг. Мы скоро свяжемся с вами!
         go!: /newNode_13
 
-    state: newNode_order_nelma_new
-        a:  Ваш заказ: Нельма филе (новая позиция). Мы скоро свяжемся с вами!
+    state: newNode_order_nelma_q1
+        a:  Ваш заказ: Нельма — 1 кг. Мы скоро свяжемся с вами!
+        go!: /newNode_13
+
+    state: newNode_order_nelma_q2
+        a:  Ваш заказ: Нельма — 2 кг. Мы скоро свяжемся с вами!
         go!: /newNode_13
