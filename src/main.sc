@@ -34,6 +34,14 @@ theme: /
             "4 шт" -> /newNode_nelma_q4
             "Назад" -> /newNode_fish
             "В меню" -> /newNode_13
+        reactions:
+            telegram:
+                reply_keyboard:
+                    resize_keyboard: true
+                    keyboard:
+                        - ["1 шт", "2 шт"]
+                        - ["3 шт", "4 шт"]
+                        - ["Назад", "В меню"]
 
     state: newNode_nelma_q1
         a:  Нельма — 1 шт добавлена в заказ.
