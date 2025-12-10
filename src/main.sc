@@ -24,17 +24,61 @@ theme: /
 
     state: newNode_nelma
         a:  Нельма филе слабосолёная \n
-            Премиальное филе Нельмы слабой соли.
+            Премиальное филе Нельмы слабой соли. \n
+            Нежная текстура, плотное мясо — подходит для салатов и нарезки.
         image: https://raw.githubusercontent.com/kamushken/imgtest/master/nelma.jpg
         buttons:
-            "Заказать" -> /newNode_order_nelma
+            "1 шт" -> /newNode_nelma_q1
+            "2 шт" -> /newNode_nelma_q2
+            "3 шт" -> /newNode_nelma_q3
+            "4 шт" -> /newNode_nelma_q4
             "Назад" -> /newNode_fish
+            "В меню" -> /newNode_13
+
+    state: newNode_nelma_q1
+        a:  Нельма — 1 шт добавлена в заказ.
+        buttons:
+            "Заказать" -> /newNode_order_nelma_1
+            "Назад" -> /newNode_nelma
+            "В меню" -> /newNode_13
+
+    state: newNode_nelma_q2
+        a:  Нельма — 2 шт добавлены в заказ.
+        buttons:
+            "Заказать" -> /newNode_order_nelma_2
+            "Назад" -> /newNode_nelma
+            "В меню" -> /newNode_13
+
+    state: newNode_nelma_q3
+        a:  Нельма — 3 шт добавлены в заказ.
+        buttons:
+            "Заказать" -> /newNode_order_nelma_3
+            "Назад" -> /newNode_nelma
+            "В меню" -> /newNode_13
+
+    state: newNode_nelma_q4
+        a:  Нельма — 4 шт добавлены в заказ.
+        buttons:
+            "Заказать" -> /newNode_order_nelma_4
+            "Назад" -> /newNode_nelma
             "В меню" -> /newNode_13
 
     state: newNode_order_chir
         a:  Ваш заказ: Чир филе. Мы скоро свяжемся с вами!
         go!: /newNode_13
 
-    state: newNode_order_nelma
-        a:  Ваш заказ: Нельма филе. Мы скоро свяжемся с вами!
+    state: newNode_order_nelma_1
+        a:  Ваш заказ: Нельма — 1 шт. Мы скоро свяжемся с вами!
+        go!: /newNode_13
+
+    state: newNode_order_nelma_2
+        a:  Ваш заказ: Нельма — 2 шт. Мы скоро свяжемся с вами!
+        go!: /newNode_13
+
+    state: newNode_order_nelma_3
+        a:  Ваш заказ: Нельма — 3 шт. Мы скоро свяжемся с вами!
+        go!: /newNode_13
+
+    state: newNode_order_nelma_4
+        a:  Ваш заказ: Нельма — 4 шт. Мы скоро свяжемся с вами!
         go!: /newNode_13
