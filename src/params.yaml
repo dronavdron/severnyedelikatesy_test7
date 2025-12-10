@@ -1,82 +1,8 @@
 {
-    "catchAll": {
-        "phrases": [
-            "Извините, непонятно"
-        ]
-    },
-    "speechNotRecognized": {
-        "phrases": [
-            "Вас плохо слышно, повторите, пожалуйста!"
-        ]
-    },
+    "catchAll": { "phrases": ["Извините, непонятно"] },
+    "speechNotRecognized": { "phrases": ["Вас плохо слышно, повторите, пожалуйста!"] },
     "fulfillment": {
-        "settings": {
-            "default": {
-                "url": ""
-            },
-            "channels": []
-        },
-        "actions": [
-            {
-                "state": "/newNode_3",
-                "action": "Выбор вариантов ноутбуков",
-                "color": "#fed766"
-            },
-            {
-                "state": "/newNode_1",
-                "action": "Вариант 1",
-                "color": "#fed766"
-            },
-            {
-                "state": "/newNode_2",
-                "action": "Вариент 2",
-                "color": "#fed766"
-            },
-            {
-                "state": "/newNode_5",
-                "action": "Выбор 1",
-                "color": "#9fd356"
-            },
-            {
-                "state": "/newNode_6",
-                "action": "Выбор 2",
-                "color": "#9fd356"
-            },
-            {
-                "state": "/newNode_7",
-                "action": "Выбор вариантов телефонов",
-                "color": "#edc9ff"
-            },
-            {
-                "state": "/newNode_9",
-                "action": "Вариант 1",
-                "color": "#edc9ff"
-            },
-            {
-                "state": "/newNode_10",
-                "action": "Вариант 2",
-                "color": "#edc9ff"
-            },
-            {
-                "state": "/newNode_11",
-                "action": "Выбор 1",
-                "color": "#edc9ff"
-            },
-            {
-                "state": "/newNode_12",
-                "action": "Выбор 2",
-                "color": "#edc9ff"
-            },
-            {
-                "state": "/newNode_13",
-                "action": "Приветствие",
-                "color": "#1ccad8"
-            },
-            {
-                "state": "/newNode_0",
-                "action": "Выберите категорию товара",
-                "color": "#f79256"
-            }
-        ]
+        "settings": { "default": { "url": "" }, "channels": [] },
+        "actions": []
     }
 }
