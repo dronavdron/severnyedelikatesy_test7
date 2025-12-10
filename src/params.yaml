@@ -1,5 +1,8 @@
 {
-  "catchAll": { "phrases": ["Извините, непонятно"] },
-  "speechNotRecognized": { "phrases": ["Вас плохо слышно, повторите, пожалуйста!"] },
-  "fulfillment": { "settings": { "default": { "url": "" }, "channels": [] }, "actions": [] }
+    "catchAll": {
+        "phrases": ["Извините, непонятно"]
+    },
+    "speechNotRecognized": {
+        "phrases": ["Вас плохо слышно, повторите, пожалуйста!"]
+    }
 }
