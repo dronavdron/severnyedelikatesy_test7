@@ -1,4 +1,4 @@
-name: delikatesy_catalog
+name: delikatesy_qty
 entryPoint: entryPoint.sc
 botEngine: v2
 language: ru
